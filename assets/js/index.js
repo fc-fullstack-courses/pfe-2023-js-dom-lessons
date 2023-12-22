@@ -145,3 +145,20 @@ window.addEventListener('click', clickHandler); // сторінка
 
 // const fakeClickEvent = new MouseEvent('click');
 // btn.dispatchEvent(fakeClickEvent);
+
+/*
+  у вас має бути кнопка з текстом
+    при натисканні на кнопку ви маєте заалертити її текстовий вміст
+    текстові дані треба брати з JS
+
+
+*/
+
+btn.addEventListener('click', (event) => {
+  // btn.textContent
+  console.log(event.target.textContent);
+  console.log(event.target.innerText);
+
+  // console.log(event.target.innerHTML);
+  // event.target.innerHTML = '<ul><li>what happened</li></ul><script>asdsadsa</script>';
+});
