@@ -74,3 +74,9 @@ document.getElementsByName('name') - шукає усі елементи з ук�
 document.querySelectorAll('#div.btn > span') - повертає всі елементи які задовільняють вказаному css селектору
 */
 
+const h1 = document.querySelector('section > h1');
+
+const img = document.querySelector('section+img');
+const img2 = document.querySelector('img[alt="Find ME"]');
+
+const p = document.querySelector('.section > p');
