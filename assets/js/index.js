@@ -159,6 +159,13 @@ btn.addEventListener('click', (event) => {
   console.log(event.target.textContent);
   console.log(event.target.innerText);
 
+  // event.target.textContent = 'test'; // змінить текст
   // console.log(event.target.innerHTML);
   // event.target.innerHTML = '<ul><li>what happened</li></ul><script>asdsadsa</script>';
 });
+
+/*
+  зробити кнопку при натисканні на яку у користувача питають промпром число
+  також поруч з кнопкою має бути параграф
+  в параграфі ви маєпо показати результат зведення данго користувачем числа у квадрат
+*/
