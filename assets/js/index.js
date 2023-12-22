@@ -22,7 +22,7 @@ console.dir(document);
 */
 
 // 1 знайти кнопку
-// const buttons = document.getElementsByTagName('button');
+const buttons = document.getElementsByTagName('button');
 // const button = buttons[0];
 
 // 2. сказати що при натисканні на кнопку щось має відбутися
@@ -62,3 +62,15 @@ function createClickHandler() {
 // taskBtn.addEventListener('click',clickHandler);
 
 taskBtn.addEventListener('click', createClickHandler());
+
+// пошук елемента у ДОМ - дереві
+/*
+document.getElementsByTagName('div') - шукає усі елементи з указаним тегом і кладе іх у псевдомасив (є ітератор)
+* document.getElementById('someId') - повертає перший елемент з вказаним айді
+document.getElementsByClassName('className') - шукає усі елементи з указаним класом
+document.getElementsByName('name') - шукає усі елементи з указаним атрибутом name
+
+* document.querySelector('#div.btn > span') - повертає перший елемент який задовільняє вказаному css селектору
+document.querySelectorAll('#div.btn > span') - повертає всі елементи які задовільняють вказаному css селектору
+*/
+
