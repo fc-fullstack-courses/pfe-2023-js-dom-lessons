@@ -22,7 +22,7 @@ console.dir(document);
 */
 
 // 1 знайти кнопку
-const buttons = document.getElementsByTagName('button');
+// const buttons = document.getElementsByTagName('button');
 // const button = buttons[0];
 
 // 2. сказати що при натисканні на кнопку щось має відбутися
@@ -39,7 +39,7 @@ const buttons = document.getElementsByTagName('button');
   по кліку на кнопку має алертом виводитись кількість кліків по кнопці
 */
 
-const taskBtn = document.getElementsByTagName('button')[0];
+// const taskBtn = document.getElementsByTagName('button')[0];
 
 // let clicks = 0;
 
@@ -61,7 +61,7 @@ function createClickHandler() {
 
 // taskBtn.addEventListener('click',clickHandler);
 
-taskBtn.addEventListener('click', createClickHandler());
+// taskBtn.addEventListener('click', createClickHandler());
 
 // пошук елемента у ДОМ - дереві
 /*
@@ -74,9 +74,62 @@ document.getElementsByName('name') - шукає усі елементи з ук�
 document.querySelectorAll('#div.btn > span') - повертає всі елементи які задовільняють вказаному css селектору
 */
 
-const h1 = document.querySelector('section > h1');
+// const h1 = document.querySelector('section > h1');
 
-const img = document.querySelector('section+img');
-const img2 = document.querySelector('img[alt="Find ME"]');
+// const img = document.querySelector('section+img');
+// const img2 = document.querySelector('img[alt="Find ME"]');
 
-const p = document.querySelector('.section > p');
+// const p = document.querySelector('.section > p');
+
+/*
+  на кнопку повісимо слухач, який має спрацювати тількі один раз
+*/
+
+const btn = document.querySelector('#btn');
+
+// let isClicked = false;
+
+// btn.addEventListener('click', () => {
+//   console.log('listener called');
+//   if(!isClicked) {
+//     alert('click happened');
+//     isClicked = true;
+//   }
+// });
+
+// btn.addEventListener(
+//   'click',
+//   () => {
+//     console.log('listener called');
+//     alert('click happened');
+//   },
+//   { once: true }
+// );
+
+function logText(text, options = {}) {
+  // if (typeof options === 'object') {
+
+  // } else if (typeof options === 'boolean') {
+
+  // } else {
+  //   throw new TypeError();
+  // }
+
+  if (options.isUpper) {
+    console.log(text.toUpperCase());
+  } else {
+    console.log(text);
+  }
+}
+
+const singleUseListener = () => {
+  console.log('listener called');
+  alert('click happened');
+
+  btn.removeEventListener('click', singleUseListener);
+}
+
+btn.addEventListener('click', singleUseListener);
+// btn.addEventListener('click', () => {
+//   alert('other listener');
+// });
