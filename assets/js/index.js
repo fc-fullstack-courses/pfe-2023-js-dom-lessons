@@ -122,14 +122,26 @@ function logText(text, options = {}) {
   }
 }
 
-const singleUseListener = () => {
-  console.log('listener called');
-  alert('click happened');
+// const singleUseListener = () => {
+//   console.log('listener called');
+//   console.log('click happened');
 
-  btn.removeEventListener('click', singleUseListener);
+//   btn.removeEventListener('click', singleUseListener);
+// }
+
+// btn.addEventListener('click', singleUseListener);
+
+const clickHandler = (event) => {
+  // console.log(event);
+  console.log(event.target); // найглибший елемент з ким відбулась подія
+  console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
 }
 
-btn.addEventListener('click', singleUseListener);
-// btn.addEventListener('click', () => {
-//   alert('other listener');
-// });
+// btn.addEventListener('click', clickHandler); // button
+// document.body.addEventListener('click', clickHandler); // body
+// document.addEventListener('click', clickHandler); // html
+window.addEventListener('click', clickHandler); // сторінка
+
+
+// const fakeClickEvent = new MouseEvent('click');
+// btn.dispatchEvent(fakeClickEvent);
