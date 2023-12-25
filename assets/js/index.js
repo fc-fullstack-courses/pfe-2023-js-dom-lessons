@@ -5,7 +5,7 @@
 // window.document - DOM
 // document - DOM
 
-console.dir(document);
+// console.dir(document);
 
 /*
   2 концепції взаємодії з домом:
@@ -135,13 +135,12 @@ const clickHandler = (event) => {
   // console.log(event);
   console.log(event.target); // найглибший елемент з ким відбулась подія
   console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
-}
+};
 
 // btn.addEventListener('click', clickHandler); // button
 // document.body.addEventListener('click', clickHandler); // body
 // document.addEventListener('click', clickHandler); // html
 window.addEventListener('click', clickHandler); // сторінка
-
 
 // const fakeClickEvent = new MouseEvent('click');
 // btn.dispatchEvent(fakeClickEvent);
@@ -169,3 +168,20 @@ btn.addEventListener('click', (event) => {
   також поруч з кнопкою має бути параграф
   в параграфі ви маєпо показати результат зведення данго користувачем числа у квадрат
 */
+
+const numbBtn = document.querySelector('#number-btn');
+// const par = document.querySelector('#display-p');
+
+// numbBtn.addEventListener('click', (e) => {
+//   const number = +prompt('Enter number');
+
+//   par.textContent = `Result is: ${number ** 2}`;
+// });
+
+numbBtn.addEventListener('click', (e) => {
+  const number = +prompt('Enter number');
+
+  e.target.parentElement.children[0].textContent = `Result is: ${number ** 2}`;
+
+  // par.textContent = `Result is: ${number ** 2}`;
+});
