@@ -194,16 +194,25 @@ const clickHandler = (event) => {
 
 // btn.addEventListener('click', clickHandler); // button 1
 // document.body.addEventListener('click', clickHandler); // body 2
-// document.addEventListener('click', clickHandler); // html 3 
+// document.addEventListener('click', clickHandler); // html 3
 // window.addEventListener('click', clickHandler); // сторінка 4
 
-
 // btn.addEventListener('click', clickHandler, true); // button 4
-// document.body.addEventListener('click', clickHandler, {capture: true}); // body 3 
+// document.body.addEventListener('click', clickHandler, {capture: true}); // body 3
 // document.addEventListener('click', clickHandler, true); // html 2
 // window.addEventListener('click', clickHandler, true); // сторінка 1
 
-btn.addEventListener('click', clickHandler, true); // button 2
-document.body.addEventListener('click', clickHandler, {capture: false}); // body 3
-document.addEventListener('click', clickHandler); // html 4 
-window.addEventListener('click', clickHandler, true); // сторінка 1
+// btn.addEventListener('click', clickHandler, true); // button 2
+// document.body.addEventListener('click', clickHandler, {capture: false}); // body 3
+// document.addEventListener('click', clickHandler); // html 4
+// window.addEventListener('click', clickHandler, true); // сторінка 1
+
+const divContainer = document.getElementById('btn-container');
+
+divContainer.addEventListener('click', (e) => {
+  // отримати кнопку на яку натиснув
+  // tagName - назва тегу капсом
+  if (e.target.tagName === 'BUTTON') {
+    console.log(e.target.textContent);
+  }
+});
