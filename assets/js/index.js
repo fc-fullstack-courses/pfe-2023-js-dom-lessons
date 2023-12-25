@@ -190,6 +190,7 @@ const clickHandler = (event) => {
   // console.log(event);
   // console.log(event.target); // найглибший елемент з ким відбулась подія
   console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
+  event.stopPropagation();
 };
 
 // btn.addEventListener('click', clickHandler); // button 1
@@ -238,4 +239,16 @@ colorTaskDiv.addEventListener('click', (e) => {
 
   colorTaskDiv.style.backgroundColor = e.target.textContent;
 
+});
+
+// const form = document.querySelector('#form');
+
+form.addEventListener('submit', (e) => {
+  // зупиняє стандартну поведінку
+  e.preventDefault(); 
+
+  // припиняє подальше сплиття або занурення
+  // e.stopPropagation();
+
+  console.log('test');
 });
