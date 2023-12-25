@@ -131,16 +131,16 @@ function logText(text, options = {}) {
 
 // btn.addEventListener('click', singleUseListener);
 
-const clickHandler = (event) => {
-  // console.log(event);
-  console.log(event.target); // найглибший елемент з ким відбулась подія
-  console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
-};
+// const clickHandler = (event) => {
+//   // console.log(event);
+//   // console.log(event.target); // найглибший елемент з ким відбулась подія
+//   console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
+// };
 
 // btn.addEventListener('click', clickHandler); // button
 // document.body.addEventListener('click', clickHandler); // body
 // document.addEventListener('click', clickHandler); // html
-window.addEventListener('click', clickHandler); // сторінка
+// window.addEventListener('click', clickHandler); // сторінка
 
 // const fakeClickEvent = new MouseEvent('click');
 // btn.dispatchEvent(fakeClickEvent);
@@ -153,15 +153,15 @@ window.addEventListener('click', clickHandler); // сторінка
 
 */
 
-btn.addEventListener('click', (event) => {
-  // btn.textContent
-  console.log(event.target.textContent);
-  console.log(event.target.innerText);
+// btn.addEventListener('click', (event) => {
+//   // btn.textContent
+//   console.log(event.target.textContent);
+//   console.log(event.target.innerText);
 
-  // event.target.textContent = 'test'; // змінить текст
-  // console.log(event.target.innerHTML);
-  // event.target.innerHTML = '<ul><li>what happened</li></ul><script>asdsadsa</script>';
-});
+//   // event.target.textContent = 'test'; // змінить текст
+//   // console.log(event.target.innerHTML);
+//   // event.target.innerHTML = '<ul><li>what happened</li></ul><script>asdsadsa</script>';
+// });
 
 /*
   зробити кнопку при натисканні на яку у користувача питають промпром число
@@ -178,10 +178,32 @@ const numbBtn = document.querySelector('#number-btn');
 //   par.textContent = `Result is: ${number ** 2}`;
 // });
 
-numbBtn.addEventListener('click', (e) => {
-  const number = +prompt('Enter number');
+// numbBtn.addEventListener('click', (e) => {
+//   const number = +prompt('Enter number');
 
-  e.target.parentElement.children[0].textContent = `Result is: ${number ** 2}`;
+//   e.target.parentElement.children[0].textContent = `Result is: ${number ** 2}`;
 
-  // par.textContent = `Result is: ${number ** 2}`;
-});
+//   // par.textContent = `Result is: ${number ** 2}`;
+// });
+
+const clickHandler = (event) => {
+  // console.log(event);
+  // console.log(event.target); // найглибший елемент з ким відбулась подія
+  console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
+};
+
+// btn.addEventListener('click', clickHandler); // button 1
+// document.body.addEventListener('click', clickHandler); // body 2
+// document.addEventListener('click', clickHandler); // html 3 
+// window.addEventListener('click', clickHandler); // сторінка 4
+
+
+// btn.addEventListener('click', clickHandler, true); // button 4
+// document.body.addEventListener('click', clickHandler, {capture: true}); // body 3 
+// document.addEventListener('click', clickHandler, true); // html 2
+// window.addEventListener('click', clickHandler, true); // сторінка 1
+
+btn.addEventListener('click', clickHandler, true); // button 2
+document.body.addEventListener('click', clickHandler, {capture: false}); // body 3
+document.addEventListener('click', clickHandler); // html 4 
+window.addEventListener('click', clickHandler, true); // сторінка 1
