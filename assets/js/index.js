@@ -216,3 +216,14 @@ divContainer.addEventListener('click', (e) => {
     console.log(e.target.textContent);
   }
 });
+
+// divContainer.style = 'width: 300px; display: flex;';
+// divContainer.style.backgroundColor = 'red';
+// divContainer.style.border = '30px dotted green';
+
+/*
+  зробити дів з декількома кнопками
+  у кожної кнопки текстом має бути назва кольору
+  при натисканні на кнопку має змінитися фоновий колір діва на натиснутий
+  обробник має бути тільки на одному елементі
+*/
