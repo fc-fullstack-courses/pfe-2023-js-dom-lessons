@@ -227,3 +227,15 @@ divContainer.addEventListener('click', (e) => {
   при натисканні на кнопку має змінитися фоновий колір діва на натиснутий
   обробник має бути тільки на одному елементі
 */
+
+const colorTaskDiv = document.getElementById('color-task');
+
+colorTaskDiv.addEventListener('click', (e) => {
+
+  if(e.target.tagName !== 'BUTTON') {
+    return;
+  }
+
+  colorTaskDiv.style.backgroundColor = e.target.textContent;
+
+});
