@@ -433,4 +433,6 @@ elem.setAttribute('title', 'asdjsadsad');
 // root.appendChild(elem);
 
 // var 2
-root.append(elem, 'append');
+root.append(elem, elem);
+document.body.append(elem); // буде саме тут
+
