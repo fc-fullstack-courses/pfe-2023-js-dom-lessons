@@ -311,3 +311,79 @@ console.log(paragrafTitle);
 
 // через вузол
 const imgTitleNode = img.getAttributeNode('title');
+console.log(imgTitleNode.value);
+
+/*
+  створіть картинку і кнопку в html
+  також збережіть у масиві 2 посилання на картинки (src)
+  при натисканні на кнопку у картинки має змінюватися src
+  на 1 з 2 посиланнь
+
+  * у масиві тепер зберігати і src і alt до картинки і замінювати їх одночасно
+*/
+
+const carImg = document.getElementById('carImg');
+const carSwitchBtn = document.getElementById('carBtn');
+
+const imgDataArr = [
+  'https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/0x0.jpg',
+  'https://imageio.forbes.com/specials-images/imageserve/6064b148afc9b47d022718d1/Hennessey-Venom-F5/960x0.jpg?height=473&width=711&fit=bounds',
+];
+
+// const srcNode = document.createAttribute('src');
+// srcNode.value = imgDataArr[0];
+// carImg.setAttributeNode(srcNode);
+
+// const altNode = document.createAttribute('altNode');
+// srcNode.value = imgDataArr[0];
+// carImg.setAttributeNode(srcNode);
+
+// carSwitchBtn.addEventListener('click', (e) => {
+//   const currentSrc = carImg.getAttribute('src');
+
+//   if(currentSrc === imgDataArr[0]) {
+//     carImg.setAttribute('src', imgDataArr[1]);
+//   } else {
+//     carImg.setAttribute('src', imgDataArr[0]);
+//   }
+// });
+
+// carSwitchBtn.addEventListener('click', (e) => {
+//   // if(srcNode.value === imgDataArr[0]) {
+//   //   srcNode.value = imgDataArr[1];
+//   // } else {
+//   //   srcNode.value = imgDataArr[0];
+//   // }
+
+//   // const isFirstSrc = srcNode.value === imgDataArr[0];
+//   // srcNode.value = isFirstSrc ? imgDataArr[1] : imgDataArr[0];
+
+//   const isFirstSrc = carImg.src === imgDataArr[0];
+//   carImg.src = isFirstSrc ? imgDataArr[1] : imgDataArr[0];
+// });
+
+const imgDataArr2 = [
+  {
+    src: 'https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/0x0.jpg',
+    alt: 'red car',
+  },
+  {
+    src: 'https://imageio.forbes.com/specials-images/imageserve/6064b148afc9b47d022718d1/Hennessey-Venom-F5/960x0.jpg?height=473&width=711&fit=bounds',
+    alt: 'black car',
+  },
+];
+
+const srcNode = document.createAttribute('src');
+srcNode.value = imgDataArr2[0].src;
+carImg.setAttributeNode(srcNode);
+
+const altNode = document.createAttribute('alt');
+altNode.value = imgDataArr2[0].alt;
+carImg.setAttributeNode(altNode);
+
+carSwitchBtn.addEventListener('click', (e) => {
+
+  const isFirstPic = srcNode.value === imgDataArr2[0].src;
+  srcNode.value = isFirstPic ? imgDataArr2[1].src : imgDataArr2[0].src;
+  altNode.value = isFirstPic ? imgDataArr2[1].alt : imgDataArr2[0].alt;
+});
