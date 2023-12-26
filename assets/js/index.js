@@ -395,7 +395,26 @@ dataBtn.addEventListener('click', (e) => {
   
   // dataset - об'єкт у який складають усі атрибутиякі починаться з data-
   console.log(dataBtn.dataset);
-  
+
   console.log(dataBtn.dataset.key);
   console.log(dataBtn.dataset.someLongName);
+});
+
+/*
+  зробити дів з декількома кнопками
+  у кожної кнопки текстом 
+  має бути назва кольору українською
+  при натисканні на кнопку 
+  має змінитися фоновий колір діва 
+  на натиснутий
+*/
+
+const dataColorDiv = document.getElementById('data-color-task');
+
+dataColorDiv.addEventListener('click' , (e) => {
+  if(e.target.tagName !== 'BUTTON') {
+    return;
+  }
+
+  dataColorDiv.style.backgroundColor = e.target.dataset.bgColor;
 });
