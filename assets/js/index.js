@@ -387,3 +387,15 @@ carSwitchBtn.addEventListener('click', (e) => {
   srcNode.value = isFirstPic ? imgDataArr2[1].src : imgDataArr2[0].src;
   altNode.value = isFirstPic ? imgDataArr2[1].alt : imgDataArr2[0].alt;
 });
+
+const dataBtn = document.getElementById('dataBtn');
+
+dataBtn.addEventListener('click', (e) => {
+  // const dataKeyText = dataBtn.getAttribute('data-key');
+  
+  // dataset - об'єкт у який складають усі атрибутиякі починаться з data-
+  console.log(dataBtn.dataset);
+  
+  console.log(dataBtn.dataset.key);
+  console.log(dataBtn.dataset.someLongName);
+});
