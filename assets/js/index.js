@@ -232,37 +232,35 @@ divContainer.addEventListener('click', (e) => {
 const colorTaskDiv = document.getElementById('color-task');
 
 colorTaskDiv.addEventListener('click', (e) => {
-
-  if(e.target.tagName !== 'BUTTON') {
+  if (e.target.tagName !== 'BUTTON') {
     return;
   }
 
   colorTaskDiv.style.backgroundColor = e.target.textContent;
-
 });
 
 // const form = document.querySelector('#form');
 
-form.addEventListener('submit', (e) => {
-  // зупиняє стандартну поведінку
-  e.preventDefault(); 
+// form.addEventListener('submit', (e) => {
+//   // зупиняє стандартну поведінку
+//   e.preventDefault();
 
-  // припиняє подальше сплиття або занурення
-  // e.stopPropagation();
+//   // припиняє подальше сплиття або занурення
+//   // e.stopPropagation();
 
-  console.log('test');
+//   console.log('test');
 
-  console.dir(e.target); // form
+//   console.dir(e.target); // form
 
-  console.log(e.target.elements); // всі інтерактивні елементи форми
+//   console.log(e.target.elements); // всі інтерактивні елементи форми
 
-  const input = e.target.elements.thisIsName;
+//   const input = e.target.elements.thisIsName;
 
-  console.dir(input);
+//   console.dir(input);
 
-  console.log(input.value); // текст в інпуті (завжди рядок)
-  console.log(input.textContent); // пустий
-});
+//   console.log(input.value); // текст в інпуті (завжди рядок)
+//   console.log(input.textContent); // пустий
+// });
 
 /*
   зробити форму з інпутом кнопкою відправки і параграфом
@@ -273,3 +271,23 @@ form.addEventListener('submit', (e) => {
   і зробити текст параграфа червоним, текст має бути червоним тільки тоді, коли введені некоректні дані
   * після відправки форми підчистити її (не залишати в інпуті дані)
 */
+
+const form2 = document.getElementById('form');
+const paragraf = document.querySelector('#result-p');
+
+form2.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const inputVal = e.target.elements.number.value;
+
+  if (!isNaN(inputVal) && inputVal.trim() !== '') {
+    paragraf.style.color = 'black';
+    paragraf.textContent = `Double of your input is ${inputVal ** 2}`;
+  } else {
+    paragraf.textContent = `Error input correct type (number)`;
+    paragraf.style.color = 'red';
+  }
+
+  // e.target.elements[0].value = '';
+  e.target.reset();
+});
