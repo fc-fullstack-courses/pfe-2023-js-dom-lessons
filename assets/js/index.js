@@ -291,3 +291,23 @@ form2.addEventListener('submit', (e) => {
   // e.target.elements[0].value = '';
   e.target.reset();
 });
+
+const img = document.getElementById('img');
+
+// img.alt = 'some alt';
+// img.src = 'https://imageio.forbes.com/specials-images/imageserve/6064b148afc9b47d022718d1/Hennessey-Venom-F5/960x0.jpg?height=473&width=711&fit=bounds';
+
+// встановлення атрибутів
+paragraf.setAttribute('title', 'Title from DOM');
+
+// теж але через вузол
+const parTitleNode = document.createAttribute('title');
+parTitleNode.value = 'this will be title';
+img.setAttributeNode(parTitleNode);
+
+// отримати значення атрибута
+const paragrafTitle = paragraf.getAttribute('title');
+console.log(paragrafTitle);
+
+// через вузол
+const imgTitleNode = img.getAttributeNode('title');
