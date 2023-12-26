@@ -382,7 +382,6 @@ altNode.value = imgDataArr2[0].alt;
 carImg.setAttributeNode(altNode);
 
 carSwitchBtn.addEventListener('click', (e) => {
-
   const isFirstPic = srcNode.value === imgDataArr2[0].src;
   srcNode.value = isFirstPic ? imgDataArr2[1].src : imgDataArr2[0].src;
   altNode.value = isFirstPic ? imgDataArr2[1].alt : imgDataArr2[0].alt;
@@ -392,7 +391,7 @@ const dataBtn = document.getElementById('dataBtn');
 
 dataBtn.addEventListener('click', (e) => {
   // const dataKeyText = dataBtn.getAttribute('data-key');
-  
+
   // dataset - об'єкт у який складають усі атрибутиякі починаться з data-
   console.log(dataBtn.dataset);
 
@@ -411,10 +410,27 @@ dataBtn.addEventListener('click', (e) => {
 
 const dataColorDiv = document.getElementById('data-color-task');
 
-dataColorDiv.addEventListener('click' , (e) => {
-  if(e.target.tagName !== 'BUTTON') {
+dataColorDiv.addEventListener('click', (e) => {
+  if (e.target.tagName !== 'BUTTON') {
     return;
   }
 
   dataColorDiv.style.backgroundColor = e.target.dataset.bgColor;
 });
+
+const root = document.getElementById('root');
+
+// створення елементів через DOM
+const elem = document.createElement('div');
+
+// наповнення даними
+elem.textContent = 'I am from DOM';
+elem.setAttribute('title', 'asdjsadsad');
+
+// відображення елементу на сторінці
+
+// var 1
+// root.appendChild(elem);
+
+// var 2
+root.append(elem, 'append');
