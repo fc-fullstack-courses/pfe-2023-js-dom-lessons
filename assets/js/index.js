@@ -70,14 +70,29 @@ function createProductCard(productObj) {
   const titleTextNode = document.createTextNode(productObj.name);
   cardTitle.append(titleTextNode);
 
-  cardArticle.append(cardImg, cardTitle);
+  const priceElems = createPriceMarkup(productObj);
+  
+  cardArticle.append(cardImg, cardTitle, ...priceElems);
+
+  if(productObj.quantity < 200) {
+    const quantityElem = createQuantityMarkup(productObj);
+    cardArticle.append(quantityElem);
+  }
+
+  card.append(cardArticle);
+
+  return card;
+}
+
+function createPriceMarkup(productObj) {
+  const priceElems = [];
 
   if (!productObj.discount) {
     const price = document.createElement('p');
     price.classList.add('price');
     price.textContent = `${productObj.price} UAH`;
 
-    cardArticle.append(price);
+    priceElems.push(price);
   } else {
     const usualPrice = document.createElement('p');
     usualPrice.classList.add('usualPrice');
@@ -90,26 +105,26 @@ function createProductCard(productObj) {
       productObj.price * ((100 - productObj.discount) / 100);
     discountedPrice.textContent = `${discountedPriceValue} UAH`;
 
-    cardArticle.append(usualPrice, discountedPrice);
+    priceElems.push(usualPrice, discountedPrice);
   }
 
+  return priceElems;
+}
+
+function createQuantityMarkup(productObj) {
   if (productObj.quantity <= 0) {
     const out = document.createElement('p');
     out.classList.add('out');
     out.textContent = 'Немає в наявності';
 
-    cardArticle.append(out);
+    return out;
   } else if (productObj.quantity < 200) {
     const almostOut = document.createElement('p');
     almostOut.classList.add('almostOut');
     almostOut.textContent = 'Закінчується';
 
-    cardArticle.append(almostOut);
+    return almostOut;
   }
-
-  card.append(cardArticle);
-
-  return card;
 }
 
 const product1Card = createProductCard(product);
