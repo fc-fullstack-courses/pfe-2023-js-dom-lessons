@@ -433,11 +433,27 @@ elem.setAttribute('title', 'asdjsadsad');
 // root.appendChild(elem);
 
 // var 2
-root.append(elem, elem);
-document.body.append(elem); // буде саме тут
+// root.append(elem, elem);
+// document.body.append(elem); // буде саме тут
 
 /*
   створити формочку з текстовим інпутом і кнопкою
   при відправки форми створити параграф з текстом який був у інпуті
   і покласти цей параграф у кінець body
 */
+
+const hometaskForm =  document.getElementById('home-form');
+
+hometaskForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const inputText = e.target.elements.text.value;
+
+  if(inputText !== '') {
+    const newP = document.createElement('p');
+    newP.textContent = inputText;
+    document.body.append(newP);
+
+    e.target.reset();
+  }
+});
