@@ -475,3 +475,13 @@ selfDestructBtn.addEventListener('click', (e) => {
   // e.currentTarget.remove();
   e.target.remove();
 });
+
+// робота з класами елемента
+
+// заміна класів напряму
+hometaskForm.className = 'bigText redBorder';
+
+// методи додавання / прибирання класів
+root.classList.add('bigText', 'redBorder'); // додавання класів до існуючих
+root.classList.remove('root-2', 'redBorder'); // видаляє вказані класи
+root.classList.toggle('test'); // "перемикає" клас
