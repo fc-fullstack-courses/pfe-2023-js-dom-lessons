@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+.cardList {
+  display: flex;
+}
+
+.cardItem {
+  padding: 15px;
+  max-width: 250px;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.cardArticle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardImg {
+  width: 160px;
+  height: 160px;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+}
+
+.price,
+.discountedPrice {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.price {
+}
+
+.usualPrice {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.discountedPrice {
+  color: red;
+}
+
+.almostOut,
+.out {
+  font-size: 0.8rem;
+}
+
+.almostOut {
+  color: red;
+}
+
+.out {
+  color: gray;
+}
