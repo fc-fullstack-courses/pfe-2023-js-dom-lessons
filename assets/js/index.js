@@ -457,3 +457,13 @@ hometaskForm.addEventListener('submit', (e) => {
     e.target.reset();
   }
 });
+
+// самовидалення елемента
+// elem.remove();
+
+// видалення вузла у іншого вузла
+// parentNode.removeChild(childNode);
+
+/*
+  створити кнопку яка при натисканні на себе буде видаляти себе
+*/
