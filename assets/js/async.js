@@ -1,36 +1,55 @@
 // синхронний код
-console.log(1);
-console.log(2);
+// console.log(1);
+// console.log(2);
 
-// for(let i = 0; i < 10; i--) {
-//   console.log('iteration');
+// // for(let i = 0; i < 10; i--) {
+// //   console.log('iteration');
+// // }
+
+// let j = 0;
+
+// for(let i = 0; i < 1000000000; i++) {
+//   // console.log('iteration');
+//   j++;
 // }
 
-let j = 0;
+// // async
+// setTimeout(function callback () {
+//   console.log('5 sec');
+// }, 5000);
 
-for(let i = 0; i < 1000000000; i++) {
-  // console.log('iteration');
-  j++;
-}
+// console.log(3);
+// console.log(4);
 
-// async
-setTimeout(function callback () {
-  console.log('5 sec');
-}, 5000);
+// const btn = document.querySelector('#btn');
 
-console.log(3);
-console.log(4);
+// btn.addEventListener('click' , (e) => {
+//   // async arrow
+//   console.log('started');
 
-const btn = document.querySelector('#btn');
+//   for(let i = 0; i < 1000000000; i++) {
+//     // console.log('iteration');
+//     j++;
+//   }
 
-btn.addEventListener('click' , (e) => {
-  // async arrow
-  console.log('started');
+//   console.log('You are logged in');
+// });
 
-  for(let i = 0; i < 1000000000; i++) {
-    // console.log('iteration');
-    j++;
-  }
 
-  console.log('You are logged in');
-});
+console.log('first'); // 1
+
+console.log('second'); // 2
+
+const timeoutId = setTimeout(() => {
+  console.log('third'); // 5
+}, 0);
+
+clearTimeout(timeoutId); // скидання таймаута, синхронна
+
+
+
+// setTimeout(() => {
+//   console.log('fourth'); // 4
+// }, 0);
+
+console.log('final'); // 3
