@@ -36,20 +36,24 @@
 // });
 
 
-console.log('first'); // 1
+// console.log('first'); // 1
 
-console.log('second'); // 2
+// console.log('second'); // 2
 
-const timeoutId = setTimeout(() => {
-  console.log('third'); // 5
-}, 0);
+// const timeoutId = setTimeout(() => {
+//   console.log('third'); // 5
+// }, 0);
 
-clearTimeout(timeoutId); // скидання таймаута, синхронна
+// clearTimeout(timeoutId); // скидання таймаута, синхронна
 
+const intervalId = setInterval(() => {
+  console.log('interval');
+}, 1000);
 
+// clearInterval(intervalId); // скидання інтервалу, синхронна
 
 // setTimeout(() => {
 //   console.log('fourth'); // 4
 // }, 0);
 
-console.log('final'); // 3
+// console.log('final'); // 3
