@@ -307,11 +307,11 @@ img.setAttributeNode(parTitleNode);
 
 // отримати значення атрибута
 const paragrafTitle = paragraf.getAttribute('title');
-console.log(paragrafTitle);
+// console.log(paragrafTitle);
 
 // через вузол
 const imgTitleNode = img.getAttributeNode('title');
-console.log(imgTitleNode.value);
+// console.log(imgTitleNode.value);
 
 /*
   створіть картинку і кнопку в html
