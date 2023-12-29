@@ -72,10 +72,10 @@ const {
 // const colorOfTower = pc.colorOfTower;
 // const pcPrice = pc.price;
 
-console.log(colorOfTower);
-console.log(pcPrice);
-console.log(pcMonitorManufacturer);
-console.log(monitorWidth);
+// console.log(colorOfTower);
+// console.log(pcPrice);
+// console.log(pcMonitorManufacturer);
+// console.log(monitorWidth);
 
 // function test(obj, ...rest) {
 //   const { id } = obj;
@@ -90,3 +90,53 @@ const user = {
 };
 
 const { password, id, ...userWithoutPassword } = user;
+
+// деструктуризація масивів
+const numbers = [5, -5, 48, 22.5];
+
+// const first = numbers[0];
+
+const [first, abracadabra, third, fourth] = numbers;
+
+const [, , alsoThird] = numbers;
+
+const [, , ...otherNumbers] = numbers;
+
+// for (const entry of Object.entries(pc)) {
+//   // console.log(entry);
+//   const [key, value] = entry;
+
+//   console.log(key);
+//   console.log(value);
+// }
+
+for (const [key, value] of Object.entries(pc)) {
+  console.log(key);
+  console.log(value);
+}
+
+/*
+  є 2 змінні 
+  треба поміняти їх значення місцями
+*/
+
+// let one = 'first value';
+// let two = 10053;
+
+// let temp;
+
+// temp = two;
+// two = one;
+// one = temp;
+
+// let one, two;
+
+// const arr1 = ['first value', 10053];
+// [two, one] = arr1;
+
+// [two, one] = ['first value', 10053];
+
+let one = 'first value';
+let two = 10053;
+
+[two, one] = [one, two];
