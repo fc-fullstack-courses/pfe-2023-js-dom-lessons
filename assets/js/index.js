@@ -410,13 +410,21 @@ dataBtn.addEventListener('click', (e) => {
 
 const dataColorDiv = document.getElementById('data-color-task');
 
-dataColorDiv.addEventListener('click', (e) => {
-  if (e.target.tagName !== 'BUTTON') {
-    return;
-  }
+dataColorDiv.addEventListener(
+  'click',
+  ({
+    target: {
+      tagName,
+      dataset: { bgColor },
+    },
+  }) => {
+    if (tagName !== 'BUTTON') {
+      return;
+    }
 
-  dataColorDiv.style.backgroundColor = e.target.dataset.bgColor;
-});
+    dataColorDiv.style.backgroundColor = bgColor;
+  }
+);
 
 const root = document.getElementById('root');
 
@@ -442,14 +450,14 @@ elem.setAttribute('title', 'asdjsadsad');
   і покласти цей параграф у кінець body
 */
 
-const hometaskForm =  document.getElementById('home-form');
+const hometaskForm = document.getElementById('home-form');
 
 hometaskForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const inputText = e.target.elements.text.value;
 
-  if(inputText !== '') {
+  if (inputText !== '') {
     const newP = document.createElement('p');
     newP.textContent = inputText;
     document.body.append(newP);
