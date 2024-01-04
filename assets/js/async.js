@@ -89,3 +89,26 @@ const serializedUser = JSON.stringify(userObj); // синхронний мето
 const parsedUser = JSON.parse(serializedUser); // синхронний метод
 
 // parsedUser === userObj // false
+// userObj.friends === parsedUser.friends // false
+
+const users = [
+  { id: 1, balance: 500 },
+  { id: 2, balance: 1000 },
+  { id: 2, balance: 2500 },
+];
+
+// поверхнева копія - зміни об'єктів впливають на об'єкти в  users
+// const richUsers1 = users.filter((user) => user.balance > 700); 
+
+// const usersString = JSON.stringify(users)
+
+// const usersCopy = JSON.parse(usersString);
+
+
+// глибока копія - зміни об'єктів НЕ впливають на об'єкти в users
+const usersCopy = JSON.parse(JSON.stringify(users)); 
+
+const usersCopy2 = structuredClone(users); 
+
+const richUsers2 = usersCopy.filter((user) => user.balance > 700);
+
