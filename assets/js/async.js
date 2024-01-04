@@ -35,7 +35,6 @@
 //   console.log('You are logged in');
 // });
 
-
 // console.log('first'); // 1
 
 // console.log('second'); // 2
@@ -46,9 +45,9 @@
 
 // clearTimeout(timeoutId); // скидання таймаута, синхронна
 
-const intervalId = setInterval(() => {
-  console.log('interval');
-}, 1000);
+// const intervalId = setInterval(() => {
+//   console.log('interval');
+// }, 1000);
 
 // clearInterval(intervalId); // скидання інтервалу, синхронна
 
@@ -65,3 +64,28 @@ const intervalId = setInterval(() => {
     setInterval - треба вчасно зупинити інтервал (clearInterval з іфом)
     setTimeout - в цьому випадку треба буде використати рекурсію
 */
+
+const userObj = {
+  id: 1,
+  name: 'Test',
+  contacts: {
+    email: 'mail@gmail.com',
+    phone: '+380123456789',
+  },
+  friends: [{}, {}],
+  isMale: true,
+  money: null,
+  currentLocation: undefined,
+  getGender: function () {
+    return `${this.isMale ? 'male' : 'female'}`;
+  },
+  symbol: Symbol('user symbol'),
+};
+
+// JSON.stringify - метод для серіалізації об'єкта / масива
+const serializedUser = JSON.stringify(userObj); // синхронний метод
+
+// JSON.parse - метод для десеріалізації об'єкта / масива з рядка
+const parsedUser = JSON.parse(serializedUser); // синхронний метод
+
+// parsedUser === userObj // false

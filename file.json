@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "Test",
+    "contacts": { "email": "mail@gmail.com", "phone": "+380123456789" },
+    "friends": [{}, {}],
+    "isMale": true,
+    "money": null
+  }
+]
