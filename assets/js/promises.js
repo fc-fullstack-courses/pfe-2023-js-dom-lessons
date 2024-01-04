@@ -42,3 +42,27 @@ promise1.then(
   }
 );
 
+/*
+  Створити проміс, який у 50% випадків 
+  буде виконаний успішно
+  а у 50% - неуспішно
+  в консолі побачити його статус 
+  та залоговати те що він повертає.
+*/
+
+const taskPromise = new Promise((resolve, reject) => {
+  if (Math.random() > 0.5) {
+    resolve('success');
+  } else {
+    reject('failure');
+  }
+});
+
+taskPromise.then(
+  (result) => {
+    console.log(result);
+  },
+  (err) => {
+    console.log(err);
+  }
+);
