@@ -98,17 +98,74 @@ const users = [
 ];
 
 // поверхнева копія - зміни об'єктів впливають на об'єкти в  users
-// const richUsers1 = users.filter((user) => user.balance > 700); 
+// const richUsers1 = users.filter((user) => user.balance > 700);
 
 // const usersString = JSON.stringify(users)
 
 // const usersCopy = JSON.parse(usersString);
 
-
 // глибока копія - зміни об'єктів НЕ впливають на об'єкти в users
-const usersCopy = JSON.parse(JSON.stringify(users)); 
+const usersCopy = JSON.parse(JSON.stringify(users));
 
-const usersCopy2 = structuredClone(users); 
+const usersCopy2 = structuredClone(users);
 
 const richUsers2 = usersCopy.filter((user) => user.balance > 700);
 
+// function cb () {
+//   console.log('test');
+//   console.log('test');
+//   console.log('test');
+//   console.log('test');
+//   console.log('test');
+//   console.log('test');
+// }
+
+// setTimeout(cb, 0);
+
+function task1() {
+  // якась асинхронна задача
+  console.log('task 1');
+
+  const user = { id: 2132432 };
+
+  setTimeout(() => task2(user), 500);
+}
+
+function task2(user) {
+  // якась асинхронна задача
+  console.log('task 2');
+  console.log(user);
+
+  setTimeout(() => task3(), 2000);
+}
+
+function task3() {
+  // якась асинхронна задача
+  console.log('task 3');
+}
+
+setTimeout(task1, 1500);
+
+function test() {
+  setTimeout(() => {
+    // якась асинхронна задача
+    console.log('task 1');
+    const user = { id: 2132432 };
+
+    setTimeout(() => {
+      // якась асинхронна задача
+      console.log('task 2');
+      console.log(user);
+
+      setTimeout(() => {
+        // якась асинхронна задача
+        console.log('task 3');
+
+        setTimeout(() => {
+          // якась асинхронна задача
+          console.log('task 4');
+        }, 1000);
+      }, 2000);
+    }, 500);
+  }, 1500);
+}
