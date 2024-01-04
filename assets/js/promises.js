@@ -28,17 +28,29 @@ function executor(resolve, reject) {
 
 const promise1 = new Promise(executor);
 
-promise1.then(
+const promise2 = promise1.then(
   function onSuccess(promiseResult) {
     // перший колбек виконується при успішному виконанні проміса
     console.log('Yay!');
     console.log(promiseResult);
+
+    // буде покладено у результат promise2, який буде відхиленим
+    // throw new Error('bad data');
+
+    // буде покладено у результат promise2, який буде виконаним
+    return 'test';
   },
   function onReject(err) {
     // другий колбек виконується при НЕуспішному виконанні проміса
     // обробник помилки
     console.log('Oh no');
     console.log(err);
+
+    // буде покладено у результат promise2, який буде відхиленим
+    // throw new Error('bad data');
+
+    // буде покладено у результат promise2, який буде виконаним
+    return 'test';
   }
 );
 
@@ -50,15 +62,13 @@ promise1.then(
   та залоговати те що він повертає.
 */
 
-const taskPromise = new Promise((resolve, reject) => {
+new Promise((resolve, reject) => {
   if (Math.random() > 0.5) {
     resolve('success');
   } else {
     reject('failure');
   }
-});
-
-taskPromise.then(
+}).then(
   (result) => {
     console.log(result);
   },
@@ -66,3 +76,4 @@ taskPromise.then(
     console.log(err);
   }
 );
+
