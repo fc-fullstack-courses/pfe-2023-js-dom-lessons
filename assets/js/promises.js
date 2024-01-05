@@ -107,18 +107,30 @@ loadImage(normalPic).then((image) => document.body.append(image));
 //   .then((image) => document.body.append(image))
 //   .catch((err) => alert(err.message));
 
-const todoURL = 'https://jsonplaceholder.typicode.com/todos';
+const todoURL = 'https://jsonplaceholder.typicode.com/t';
 
-const fetchResult = fetch(todoURL);
+// const fetchResult = fetch(todoURL);
 
-const res = fetchResult.then((response) => {
-  // const res = response.json(); // асинхронна десеріалізація JSON даних
-  return response.json();
-});
+// const res = fetchResult.then((response) => {
+//   // const res = response.json(); // асинхронна десеріалізація JSON даних
+//   return response.json();
+// });
 
-res.then((todoArr) => {
-  // console.log(todoArr);
+// res.then((todoArr) => {
+//   // console.log(todoArr);
 
+//   const todosStringsArr = todoArr.map((todo) => JSON.stringify(todo));
+
+//   const todoElems = todosStringsArr.map((todoStr) => {
+//     const todoElem = document.createElement('p');
+//     todoElem.textContent = todoStr;
+//     return todoElem;
+//   });
+
+//   document.body.append(...todoElems);
+// });
+
+function createTodos(todoArr) {
   const todosStringsArr = todoArr.map((todo) => JSON.stringify(todo));
 
   const todoElems = todosStringsArr.map((todoStr) => {
@@ -128,4 +140,9 @@ res.then((todoArr) => {
   });
 
   document.body.append(...todoElems);
-});
+}
+
+fetch(todoURL)
+  .then((response) => response.json())
+  .then((todoArr) => createTodos(todoArr))
+  .catch((err) => console.log(err));
