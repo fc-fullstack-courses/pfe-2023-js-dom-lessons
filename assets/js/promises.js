@@ -144,17 +144,51 @@ function createTodos(todoArr) {
 
 const loadingDiv = document.getElementById('loading');
 
-fetch('./todos.json')
-  .then((response) => response.json())
-  .then((todoArr) => {
-    createTodos(todoArr);
-    // loadingDiv.remove();
-  })
-  .catch((err) => {
-    console.log(err);
-    // loadingDiv.remove();
-  })
-  .finally(() => {
-    console.log('code executed');
-    loadingDiv.remove();
-  });
+// fetch('./todos.json')
+//   .then((response) => response.json())
+//   .then((todoArr) => {
+//     createTodos(todoArr);
+//     // loadingDiv.remove();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//     // loadingDiv.remove();
+//   })
+//   .finally(() => {
+//     console.log('code executed');
+//     loadingDiv.remove();
+//   });
+
+// async
+
+function test1 () {
+  return 1;
+}
+
+const res1 = test1();
+
+function test2 () {
+  return Promise.resolve(2);
+}
+
+const res2 = test2();
+
+async function test3 () {
+  // return 3;
+  throw 3;
+}
+
+const res3 = test3();
+
+const test4 = async function () {
+  return Promise.resolve(10)
+}
+
+const test5 = async () => {}
+
+const obj = {
+  asdsad: async function () {}
+}
+class Test {
+  static async test() {}
+}
