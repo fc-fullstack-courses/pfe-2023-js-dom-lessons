@@ -103,6 +103,29 @@ const badPic = 'https://asdsadsa.asdsad';
 loadImage(normalPic).then((image) => document.body.append(image));
 
 // loadImage(badPic).then((image) => document.body.append(image), (err) => alert(err.message));
-loadImage(badPic)
-  .then((image) => document.body.append(image))
-  .catch((err) => alert(err.message));
+// loadImage(badPic)
+//   .then((image) => document.body.append(image))
+//   .catch((err) => alert(err.message));
+
+const todoURL = 'https://jsonplaceholder.typicode.com/todos';
+
+const fetchResult = fetch(todoURL);
+
+const res = fetchResult.then((response) => {
+  // const res = response.json(); // асинхронна десеріалізація JSON даних
+  return response.json();
+});
+
+res.then((todoArr) => {
+  // console.log(todoArr);
+
+  const todosStringsArr = todoArr.map((todo) => JSON.stringify(todo));
+
+  const todoElems = todosStringsArr.map((todoStr) => {
+    const todoElem = document.createElement('p');
+    todoElem.textContent = todoStr;
+    return todoElem;
+  });
+
+  document.body.append(...todoElems);
+});
