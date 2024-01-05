@@ -142,8 +142,19 @@ function createTodos(todoArr) {
   document.body.append(...todoElems);
 }
 
-fetch(todoURL)
+const loadingDiv = document.getElementById('loading');
+
+fetch('./todos.json')
   .then((response) => response.json())
-  .then((todoArr) => createTodos(todoArr))
-  .catch((err) => console.log(err))
-  .finally(() => console.log('code executed'));
+  .then((todoArr) => {
+    createTodos(todoArr);
+    // loadingDiv.remove();
+  })
+  .catch((err) => {
+    console.log(err);
+    // loadingDiv.remove();
+  })
+  .finally(() => {
+    console.log('code executed');
+    loadingDiv.remove();
+  });
