@@ -13,46 +13,46 @@
 // створення промісу через конструктор
 // const promise1 = new Promise(); // error
 
-function executor(resolve, reject) {
-  // функція яку треба виконати при успішному виконанні вашої операції
-  // те що ви в неї кинете буде результатом успішного виконання промісу
-  // resolve({
-  //   id: 123,
-  //   name: 'User',
-  // });
+// function executor(resolve, reject) {
+//   // функція яку треба виконати при успішному виконанні вашої операції
+//   // те що ви в неї кинете буде результатом успішного виконання промісу
+//   // resolve({
+//   //   id: 123,
+//   //   name: 'User',
+//   // });
 
-  // функція яку треба виконати при НЕуспішному виконанні вашої операції
-  // те що ви в неї кинете буде результатом НЕуспішного виконання промісу
-  reject(1234);
-}
+//   // функція яку треба виконати при НЕуспішному виконанні вашої операції
+//   // те що ви в неї кинете буде результатом НЕуспішного виконання промісу
+//   reject(1234);
+// }
 
-const promise1 = new Promise(executor);
+// const promise1 = new Promise(executor);
 
-const promise2 = promise1.then(
-  function onSuccess(promiseResult) {
-    // перший колбек виконується при успішному виконанні проміса
-    console.log('Yay!');
-    console.log(promiseResult);
+// const promise2 = promise1.then(
+//   function onSuccess(promiseResult) {
+//     // перший колбек виконується при успішному виконанні проміса
+//     console.log('Yay!');
+//     console.log(promiseResult);
 
-    // буде покладено у результат promise2, який буде відхиленим
-    // throw new Error('bad data');
+//     // буде покладено у результат promise2, який буде відхиленим
+//     // throw new Error('bad data');
 
-    // буде покладено у результат promise2, який буде виконаним
-    return 'test';
-  },
-  function onReject(err) {
-    // другий колбек виконується при НЕуспішному виконанні проміса
-    // обробник помилки
-    console.log('Oh no');
-    console.log(err);
+//     // буде покладено у результат promise2, який буде виконаним
+//     return 'test';
+//   },
+//   function onReject(err) {
+//     // другий колбек виконується при НЕуспішному виконанні проміса
+//     // обробник помилки
+//     console.log('Oh no');
+//     console.log(err);
 
-    // буде покладено у результат promise2, який буде відхиленим
-    // throw new Error('bad data');
+//     // буде покладено у результат promise2, який буде відхиленим
+//     // throw new Error('bad data');
 
-    // буде покладено у результат promise2, який буде виконаним
-    return 'test';
-  }
-);
+//     // буде покладено у результат promise2, який буде виконаним
+//     return 'test';
+//   }
+// );
 
 /*
   Створити проміс, який у 50% випадків 
@@ -62,20 +62,20 @@ const promise2 = promise1.then(
   та залоговати те що він повертає.
 */
 
-new Promise((resolve, reject) => {
-  if (Math.random() > 0.5) {
-    resolve('success');
-  } else {
-    reject('failure');
-  }
-}).then(
-  (result) => {
-    console.log(result);
-  },
-  (err) => {
-    console.log(err);
-  }
-);
+// new Promise((resolve, reject) => {
+//   if (Math.random() > 0.5) {
+//     resolve('success');
+//   } else {
+//     reject('failure');
+//   }
+// }).then(
+//   (result) => {
+//     console.log(result);
+//   },
+//   (err) => {
+//     console.log(err);
+//   }
+// );
 
 //
 
@@ -100,14 +100,14 @@ const normalPic =
   'https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-chocolate-point.jpg';
 const badPic = 'https://asdsadsa.asdsad';
 
-loadImage(normalPic).then((image) => document.body.append(image));
+// loadImage(normalPic).then((image) => document.body.append(image));
 
 // loadImage(badPic).then((image) => document.body.append(image), (err) => alert(err.message));
 // loadImage(badPic)
 //   .then((image) => document.body.append(image))
 //   .catch((err) => alert(err.message));
 
-const todoURL = 'https://jsonplaceholder.typicode.com/t';
+const todoURL = 'https://jsonplaceholder.typicode.com/todos';
 
 // const fetchResult = fetch(todoURL);
 
@@ -145,4 +145,5 @@ function createTodos(todoArr) {
 fetch(todoURL)
   .then((response) => response.json())
   .then((todoArr) => createTodos(todoArr))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
+  .finally(() => console.log('code executed'));
