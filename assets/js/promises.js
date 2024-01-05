@@ -252,3 +252,9 @@ async function testAwait3() {
     loadingDiv.remove();
   }
 }
+
+/*
+  Опціонально:
+  За допомогою даних з сайту https://jsonplaceholder.typicode.com/users
+  отримати дані корстувачів і зобразити їх на вашій сторніці з різними елементами і стилізацією
+*/
