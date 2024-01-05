@@ -77,3 +77,32 @@ new Promise((resolve, reject) => {
   }
 );
 
+//
+
+function loadImage(imgUrl) {
+  const image = document.createElement('img');
+  image.src = imgUrl;
+
+  const imageLoadPromise = new Promise((res, rej) => {
+    image.addEventListener('load', () => {
+      res(image);
+    });
+
+    image.addEventListener('error', () => {
+      rej(new Error('couldnt download image'));
+    });
+  });
+
+  return imageLoadPromise;
+}
+
+const normalPic =
+  'https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-chocolate-point.jpg';
+const badPic = 'https://asdsadsa.asdsad';
+
+loadImage(normalPic).then((image) => document.body.append(image));
+
+// loadImage(badPic).then((image) => document.body.append(image), (err) => alert(err.message));
+loadImage(badPic)
+  .then((image) => document.body.append(image))
+  .catch((err) => alert(err.message));
