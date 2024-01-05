@@ -161,19 +161,19 @@ const loadingDiv = document.getElementById('loading');
 
 // async
 
-function test1 () {
+function test1() {
   return 1;
 }
 
 const res1 = test1();
 
-function test2 () {
+function test2() {
   return Promise.resolve(2);
 }
 
 const res2 = test2();
 
-async function test3 () {
+async function test3() {
   // return 3;
   throw 3;
 }
@@ -181,14 +181,74 @@ async function test3 () {
 const res3 = test3();
 
 const test4 = async function () {
-  return Promise.resolve(10)
-}
+  return Promise.resolve(10);
+};
 
-const test5 = async () => {}
+const test5 = async () => {};
 
 const obj = {
-  asdsad: async function () {}
-}
+  asdsad: async function () {},
+};
 class Test {
   static async test() {}
+}
+
+// await
+// await test5(); // помилка якщо файл не є модулем
+
+async function testAwait() {
+  const promise1 = new Promise((res, rej) => {
+    res(10);
+  });
+
+  const number = await promise1;
+
+  console.log(number);
+
+  const number2 = number ** 2;
+
+  console.log(number2);
+
+  return number2 / 5;
+
+  // const promise2 = promise1.then((number) => {
+  //   console.log(number);
+  //   const number2 = number ** 2;
+  //   return number2;
+  // });
+
+  // const promise3 = promise2.then((number) => {
+  //   console.log(number);
+  //   return number / 5;
+  // });
+
+  // return promise3;
+}
+
+async function testAwait2() {
+  const fetchResponse = fetch('./todos.json');
+
+  const promiseWithData = fetchResponse.then((response) => response.json());
+
+  const promiseWithTodoElems = promiseWithData.then((todoArr) => {
+    createTodos(todoArr);
+    loadingDiv.remove();
+  });
+}
+
+async function testAwait3() {
+  try {
+    console.log('try');
+    const response = await fetch('./todos.json');
+
+    const todoArr = await response.json();
+
+    createTodos(todoArr);
+  } catch (err) {
+    console.log('catch');
+    console.log(err);
+  } finally {
+    console.log('finally');
+    loadingDiv.remove();
+  }
 }
